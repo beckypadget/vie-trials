@@ -1,6 +1,8 @@
 #### SIMULATIONS ####
+if(!require(coxed)){install.packages("coxed")}
 library("coxed")
-library("survminer")
+if(!require(survminer)){install.packages("survminer")}
+library(survminer)
 proportion_censored <- 0.6899225 #length(f_data$Day_survived[which(f_data$Day_survived==63)])/length(f_data$Day_survived)
 
 num_deaths <- 17 #length(f_data$Day_survived[which(f_data$Treatment==0 & f_data$Day_survived < 63)])
