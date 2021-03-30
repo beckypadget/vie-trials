@@ -23,3 +23,5 @@ The 'Short-term effects' section has code for log-rank and Cox models for data b
 The 'Power' section has code for post-hoc power analysis that uses the results of the Cox model. This is done in two ways: 1) analytically, using the ```powerCT.default()``` function; 2) with simulations, using the ```sim.survdata()``` function.
 
 ## Behaviour analysis
+Models for allogrooming, antennation, trophallaxis and environment manipulation behaviours are created in the ```zib_models.R``` file; models for self-grooming and butting are in the ```nb_models.R``` file (zero-inflated beta, and negative binomial models, respectively). Analyses of models for each behaviour are in separate files for ease. The ```requirements.R``` file contains a list of packages used.
+
