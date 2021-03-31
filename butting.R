@@ -20,23 +20,6 @@ post_but_m2 <- mcmc_areas(mat_but_m2,
                           prob=c(0.89)) 
 post_but_m2
 
-# Back-transformed effect size esimates
-but_d4_effect <- plogis(mat_but_m2[,"(Intercept)"] + mat_but_m2[,"Day4"]) - plogis(mat_but_m2[,"(Intercept)"])
-but_d10_effect <- plogis(mat_but_m2[,"(Intercept)"] + mat_but_m2[,"Day10"]) - plogis(mat_but_m2[,"(Intercept)"])
-
-but_effects_df <- data.frame(c(rep("Day 4", times=4000),
-                                  rep("Day 10", times=4000)),
-                             c(but_d4_effect,
-                               but_d10_effect))
-colnames(but_effects_df) <- c("Condition", "Effect")
-
-but_effects <- ggplot(but_effects_df, aes(x=Condition, y=Effect, fill=Condition)) + 
-  geom_violinhalf() + theme_classic() + ylab("Effect size (proportion change)") + 
-  coord_flip() +
-  geom_hline(yintercept = 0, linetype = "dashed", color="grey") +
-  scale_fill_manual(values=c("#f7fcf0", "#e0f3db","#ccebc5", "#7bccc4", "#2b8cbe", "#08589e"))
-but_effects
-
 
 # Find nice way to visualise HDI and ROPE
 t_hdi_plot <- plot(hdi(t_effect, ci=c(0.89, 0.95))) + scale_fill_manual(values=c("cyan4", "cyan3", "white")) + theme_classic() + ggtitle("Treatment") + xlim(-0.05, 0.1)
